@@ -14,7 +14,10 @@ public class Eliza {
 		Scanner in = new Scanner(System.in);
 		Random rand = new Random();
 		
+		Thread interruptor = new Thread(new Interruptor());
+		
 		System.out.println("Hi, my name is Eliza!  Tell me about your day.");
+		interruptor.start();
 		while(true){
 			String response = in.nextLine();
 			response.toLowerCase();
@@ -52,8 +55,7 @@ public class Eliza {
 				}
 				System.out.println(output);
 			}
-		}
-		
+		}	
 	}
 	public static HashSet hedgeInit(){
 		HashSet<String>hedges=new HashSet<String>();
